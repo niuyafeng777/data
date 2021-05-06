@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./PriorityQueue.js"></script>
+    <script>
+        var pq = new PriorityQueue();
+        pq.enqueue('a', 5);
+        pq.enqueue('b', 8);
+        pq.enqueue('c', 6);
+        pq.enqueue('d', 3);
+        pq.enqueue('e', 4);
+        pq.enqueue('f', 2);
+        pq.enqueue('g', 1);
+        console.log(pq);
+        console.log(pq.items);
+        console.log(pq.toString());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./Queue.js"></script>
+    <script>
+        function passgame(list, count) {
+            var q = new Queue();
+            //将成员加入队列
+            for (var i = 0; i < list.length; i++) {
+                q.enqueue(list[i]);
+            }
+            //只要队列数量大于一就一直循环
+            while (q.size() > 1) {
+                //取出队首元素并将队首元素加入到队尾
+                //数到n个就意味着第前n-1个从队首取出，并加入队尾
+                for (var i = 0; i < count - 1; i++) {
+                    q.enqueue(q.delqueue())
+                }
+                //第n个人淘汰
+                q.delqueue();
+                console.log(q.toString());
+            }
+            console.log(q.size());
+            console.log(q.front());
+        }
+        var list = ['a', 'b', 'c', 'd', 'e']
+        passgame(list, 3);
+    </script>
+</body>
+
+</html>

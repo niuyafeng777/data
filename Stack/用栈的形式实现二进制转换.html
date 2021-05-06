@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function stack() {
+            this.items = [];
+            //1,将元素压入栈
+            stack.prototype.push = function (e) {
+                this.items.push(e);
+            }
+            //2,从栈中取出元素
+            stack.prototype.pop = function (e) {
+                return this.items.pop();
+            }
+            //3,查看栈顶元素
+            stack.prototype.peek = function (e) {
+                return this.items[this.items.length - 1]
+            }
+            //4,查看栈是否为空
+            stack.prototype.isEmpty = function (e) {
+                return this.items.length == 0
+            }
+            //5,查看栈中元素的个数
+            stack.prototype.elNum = function (e) {
+                return this.items.length
+            }
+            //6,获取栈
+            stack.prototype.toString = function (e) {
+                var res = '';
+                for (var i = 0; i < this.items.length; i++) {
+                    res += this.items[i] + ' '
+                }
+                return res
+            }
+
+        }
+        function toBinary(num) {
+            var s = new stack();
+            while (num / 2 > 0) {
+                s.push(num % 2);
+                num = Math.floor(num / 2);
+            }
+            var binaryString = '';
+            while (!s.isEmpty()) {
+                binaryString += s.pop();
+            }
+            return binaryString
+        }
+        console.log(toBinary(3000));
+		console.log(toBinary(21));
+		console.log(toBinary(64));
+    </script>
+</body>
+
+</html>

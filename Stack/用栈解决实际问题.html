@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function stack() {
+            this.items = [];
+            //1,将元素压入栈
+            stack.prototype.push = function (e) {
+                this.items.push(e);
+            }
+            //2,从栈中取出元素
+            stack.prototype.pop = function () {
+                return this.items.pop();
+            }
+            //3,查看栈顶元素
+            stack.prototype.peek = function () {
+                return this.items[this.items.length - 1]
+            }
+            //4,查看栈是否为空
+            stack.prototype.isEmpty = function () {
+                return this.items.length == 0
+            }
+            //5,查看栈中元素的个数
+            stack.prototype.size = function () {
+                return this.items.length
+            }
+            //6,获取栈
+            stack.prototype.toString = function () {
+                var res = '';
+                for (var i = 0; i < this.items.length; i++) {
+                    res += this.items[i] + ' '
+                }
+                return res
+            }
+        }
+        function f1(str) {
+            var s = new stack();
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] == '(') {
+                    s.push(str[i]);
+                } else if (str[i] == ')') {
+                    if (s.isEmpty()) {
+                        return false;
+                    } else {
+                        s.pop();
+                    }
+                }
+            }
+            return s.isEmpty() == true;
+        }
+        console.log(f1('()ss()ss(sss(ss)(ss)ss)'));
+        console.log(f1('()ss()ss(sss(ss)(ss)ss))'));
+    </script>
+</body>
+
+</html>

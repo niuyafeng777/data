@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合集</title>
+</head>
+
+<body>
+    <script>
+        function Set() {
+            this.item = {}
+            //添加元素
+            Set.prototype.add = function (value) {
+                if (this.has(value)) {
+                    return false
+                }
+                this.item[value] = value;
+                return true
+            }
+            //has
+            Set.prototype.has = function (value) {
+                return this.item.hasOwnProperty(value)
+            }
+            //remove
+            Set.prototype.remove = function (value) {
+                if (!this.has(value)) {
+                    return false
+                }
+                delete this.item[value];
+                return true
+            }
+            //clear
+            Set.prototype.clear = function () {
+                this.item = {}
+            }
+            //size
+            Set.prototype.size = function () {
+                return Object.keys(this.item).length
+            }
+            //value
+            Set.prototype.values = function () {
+                return Object.keys(this.item)
+            }
+
+        }
+        var set = new Set();
+        set.add('a')
+        set.add('b')
+        set.add('c')
+        set.add(1)
+        set.add('2')
+        set.add(3)
+        console.log(set);
+        console.log(set.values());
+        set.remove(1)
+        console.log(set);
+        console.log(set.values());
+        console.log(set.size());
+    </script>
+</body>
+
+</html>
