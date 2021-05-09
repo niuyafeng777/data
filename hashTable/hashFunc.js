@@ -8,4 +8,3 @@ function hashFunc(str, size) {
     var index = hashCode % size;
     return index;
 }
-console.log(hashFunc('aaaa', 10));

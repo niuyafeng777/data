@@ -12,7 +12,24 @@
     <script src="./hashFunc.js"></script>
     <script src="./hashTable.js"></script>
     <script>
+        var hT = new hashTable();
+        hT.put('abc', '111')
+        hT.put('cba', '222')
+        hT.put('bac', '333')
+        hT.put('bca', '444')
+        hT.put('aaa', '555')
+        hT.put('bbb', '666')
+        hT.put('ccc', '777')
+        console.log(hT);
+        console.log(hT.limit);
+        console.log(hT.storage);
 
+        // console.log(hT);
+        // console.log(hT.get('abc'));
+        // hT.put('abc', '123')
+        // console.log(hT.get('abc'));
+        // hT.remove('abc')
+        // console.log(hT.get('abc'));
     </script>
 </body>
 
